@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>无标题文档</title>
+		<style type="text/css">
+			ul,li{ margin:0px; padding:0px;}
+			body{ background:#eee;}
+			.grade-user-list-cont{ font-size:15px; color:#f9e68e; margin:5px 0px 0px 20px; height:330px; overflow:hidden;}
+			.grade-user-list-cont ul li{ overflow:hidden; height:30px;}
+			.grade-user-list-cont ul li span{ display:inline-block; text-align:center; overflow:hidden; height:30px;line-height:30px; width:40px; text-overflow:ellipsis;}
+			.grade-user-list-cont ul li span.span2{ width:79px; margin-left:23px; text-overflow:clip;}
+			.font-other{ font-family:BELLM Tblod; font-weight:bold;}
+		</style>
+	</head>
+	
+	<body>
+		<div style="background:#ccc; width:400px; margin:100px auto;">
+			<div class="grade-user-list-cont" id="scrollOuter" style="overflow:hidden;">
+				<ul id="scrollInner1">
+					<li><span>hwy547</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>xudahan</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>hwy547</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>七玄2</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>zhangwang2015</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>zhangwang2015</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>a28918905667</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>qaz120</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>c138661</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>c138661</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>wyq0307</span><span class="span2">10元</span><span class="span2">2015.03.05</span></li>
+					<li><span>wzawld</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>zgx15705941975</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>jingyu1016</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>qq542369553</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>gbl13285002027</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>gml15060417336</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>gaoyangs</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>d90999</span><span class="span2">10元</span><span class="span2">2015.03.05</span></li>
+					<li><span>ly13290726198</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>ly13290726198</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>d90999</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>laz15005973542</span><span class="span2">20元</span><span class="span2">2015.03.05</span></li>
+					<li><span>laz15005973542</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>azaz2016</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>gml15060417336</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>hanzhifu</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>gbl13285002027</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>zgx15705941975</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>zhang456</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>rongrunyu123</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>dzx13290722669</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>lfl15280145817</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+				</ul>
+				<ul id="scrollInner2">
+				
+				</ul>							
+			</div>
+		</div>
+		<script type="text/javascript">
+				function getId(e){
+					return document.getElementById(e);	
+				}
+				var scrollOuter=getId("scrollOuter");
+				var scrollInner1=getId("scrollInner1");
+				var timeStep=10;
+				var timer;
+				
+				//如果滚动对象1的高度大于最外框的高度，就将滚动对象1的内容赋值给滚动对象2
+				if(scrollInner1.offsetHeight>scrollOuter.offsetHeight){
+					scrollInner2.innerHTML=scrollInner1.innerHTML;
+					timer=setInterval(scrollFn,timeStep);
+					scrollOuter.onmouseenter=function(){ clearInterval(timer);}
+					scrollOuter.onmouseleave=function(){ timer=setInterval(scrollFn,timeStep);}	
+				}
+				function scrollFn(){
+					if(scrollOuter.scrollTop>=scrollInner1.offsetHeight){
+						scrollOuter.scrollTop=0;						
+					}else{
+						scrollOuter.scrollTop++;	
+					}
+				}
+								
+		</script>
+	</body>
+</html>

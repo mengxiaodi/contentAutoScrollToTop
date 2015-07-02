@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>无标题文档</title>
+		<style type="text/css">
+		body{ background:#eee;}
+		.grade-user-list-cont{ font-size:15px; color:#f9e68e; margin:5px 0px 0px 20px; height:330px; overflow:hidden;}
+		.grade-user-list-cont ul li{ overflow:hidden; height:30px;}
+		.grade-user-list-cont ul li span{ display:inline-block; text-align:center; overflow:hidden; height:30px;line-height:30px; width:40px; text-overflow:ellipsis;}
+		.grade-user-list-cont ul li span.span2{ width:79px; margin-left:23px; text-overflow:clip;}
+		.font-other{ font-family:BELLM Tblod; font-weight:bold;}
+		</style>
+	</head>
+	
+	<body>
+		<div style="background:#ccc; width:400px; margin:100px auto;">
+			<div class="grade-user-list-cont" id="scrollOuter" style="overflow:hidden;">
+				<ul id="scrollInner1">
+					<li><span>hwy547</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>xudahan</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>hwy547</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>七玄2</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>zhangwang2015</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>zhangwang2015</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>a28918905667</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>qaz120</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>c138661</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>c138661</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>wyq0307</span><span class="span2">10元</span><span class="span2">2015.03.05</span></li>
+					<li><span>wzawld</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>zgx15705941975</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>jingyu1016</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>qq542369553</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>gbl13285002027</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>gml15060417336</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>gaoyangs</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>d90999</span><span class="span2">10元</span><span class="span2">2015.03.05</span></li>
+					<li><span>ly13290726198</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>ly13290726198</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>d90999</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>laz15005973542</span><span class="span2">20元</span><span class="span2">2015.03.05</span></li>
+					<li><span>laz15005973542</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>azaz2016</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>gml15060417336</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>hanzhifu</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>gbl13285002027</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>zgx15705941975</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>zhang456</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>rongrunyu123</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>dzx13290722669</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					<li><span>lfl15280145817</span><span class="span2">5元</span><span class="span2">2015.03.05</span></li>
+					
+				</ul>
+				<ul id="scrollInner2">
+				</ul>							
+			</div>
+		</div>
+		<script type="text/javascript">
+				var scroller={
+					timer:null,
+					scrollOuter:null,
+					scrollInner1:null,
+					scrollInner2:null,
+					seconds:null,
+					getId:function(e){
+						return document.getElementById(e);	
+					},
+					scroller:function(){
+						if(this.scrollOuter.scrollTop>=this.scrollInner1.offsetHeight){
+							this.scrollOuter.scrollTop=0;
+						}else{
+							this.scrollOuter.scrollTop++;	
+						}
+					},
+					newScroller:function(){
+						this.scrollInner2.innerHTML=this.scrollInner1.innerHTML;
+						this.timer1=setInterval(this.scroller,this.seconds);
+						this.scrollOuter.onmouseenter=function(){ clearInterval(this.timer1);}
+						this.scrollOuter.onmouseleave=function(){ this.timer1=setInterval(this.scroller,this.seconds);}
+					},
+					init:function(obj){
+						_this=this;
+						this.seconds=obj.seconds;
+						this.scrollOuter=this.getId(obj.scrollOuter);
+						this.scrollInner1=this.getId(obj.scrollInner1);
+						this.scrollInner2=this.getId(obj.scrollInner2);
+						if(this.scrollInner1.offsetHeight>this.scrollOuter.offsetHeight){
+							this.scrollInner2.innerHTML=this.scrollInner1.innerHTML;
+							this.timer=setInterval(this.scroller,this.seconds);
+						}
+						this.scrollOuter.onmouseenter=function(){ clearInterval(_this.timer);}
+						this.scrollOuter.onmouseleave=function(){ _this.timer=setInterval(_this.scroller,30);}																					
+					}
+				};
+				var nScroll={
+					scrollOuter:"scrollOuter",
+					scrollInner1:"scrollInner1",
+					scrollInner2:"scrollInner2",
+					seconds:30
+				}
+				scroller.init(nScroll);
+		</script>
+	</body>
+</html>
